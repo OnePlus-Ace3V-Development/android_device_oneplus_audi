@@ -9,7 +9,7 @@ LOCAL_PATH := $(call my-dir)
 ifeq ($(TARGET_DEVICE),audi)
 	include $(call all-makefiles-under,$(LOCAL_PATH))
 	include $(CLEAR_VARS)
-	
+
 # A/B builds require us to create the mount points at compile time.
 FIRMWARE_MOUNT_POINT := $(TARGET_OUT_VENDOR)/firmware_mnt
 $(FIRMWARE_MOUNT_POINT): $(LOCAL_INSTALLED_MODULE)
@@ -98,5 +98,15 @@ ALL_DEFAULT_INSTALLED_MODULES += \
 	$(RFS_MSM_MPSS_SYMLINKS) \
 	$(RFS_MSM_SLPI_SYMLINKS) \
 	$(RFS_MSM_WPSS_SYMLINKS)
+
+FIRMWARE_WLAN_KIWI_V2_SYMLINKS := $(TARGET_OUT_VENDOR)/firmware/wlan/qca_cld/kiwi_v2/
+$(FIRMWARE_WLAN_KIWI_V2_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Creating kiwi_v2 qca_cld wlan firmware symlinks: $@"
+	mkdir -p $@
+	$(hide) ln -sf /vendor/etc/wifi/kiwi_v2/WCNSS_qcom_cfg.ini $@/WCNSS_qcom_cfg.ini
+	$(hide) ln -sf /mnt/vendor/persist/kiwi_v2/wlan_mac.bin $@/wlan_mac.bin
+
+ALL_DEFAULT_INSTALLED_MODULES += \
+    $(FIRMWARE_WLAN_KIWI_V2_SYMLINKS)
 
 endif
