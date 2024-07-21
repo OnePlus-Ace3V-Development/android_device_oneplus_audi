@@ -46,6 +46,13 @@ PRODUCT_PACKAGES += \
 TARGET_SCREEN_HEIGHT := 2414
 TARGET_SCREEN_WIDTH := 1080
 
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health-service.oneplus \
+    android.hardware.health-service.oneplus_recovery \
+    android.hardware.health@1.0.vendor \
+    android.hardware.health@2.1.vendor
+
 # Partitions
 PRODUCT_BUILD_SUPER_PARTITION := true
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
