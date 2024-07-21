@@ -52,10 +52,10 @@ TARGET_SCREEN_WIDTH := 1080
 # Boot control
 PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
-    android.hardware.boot-service.qti_recovery \
+    android.hardware.boot-service.qti.recovery \
     libboot_control_qti \
     libgptutils.pineapple
-	
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.oneplus \
