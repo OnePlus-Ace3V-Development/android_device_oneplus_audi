@@ -20,7 +20,9 @@ AB_OTA_PARTITIONS += \
     vbmeta_system \
     odm \
     product \
+    recovery \
     system \
+    system_dlkm \
     system_ext \
     vendor \
     vendor_dlkm
@@ -87,7 +89,7 @@ BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 201326592
 
 BOARD_SUPER_PARTITION_SIZE := 16106127360
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
-BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor vendor_dlkm
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_dlkm system_ext vendor vendor_dlkm
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 16101933056
 
 BOARD_PARTITION_LIST := $(call to-upper, $(BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST))
